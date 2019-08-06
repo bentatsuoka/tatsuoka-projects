@@ -136,7 +136,7 @@ func insertIntoDB(codes []ZipCode) bool {
 	var values []string
 	for i := 2; i < len(codes); i++ {
 		zip_code := codes[i].zip
-		total_pop := codes[i].totals.totalPop
+		//total_pop := codes[i].totals.totalPop
 		only_english_total := codes[i].totals.onlyEnglish.total
 		only_english_percent := codes[i].totals.onlyEnglish.percent
 		non_english_total := codes[i].totals.otherThanEnglish.pop.total

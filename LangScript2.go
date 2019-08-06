@@ -40,7 +40,7 @@ type ZipCode struct {
 
 func main() {
 
-	file, err := os.Open("./data_files/langCensus/LanguagesByZip.csv")
+	file, err := os.Open("LanguagesByZip.csv")
 	if err != nil {
 		log.Fatal(err)
 	}

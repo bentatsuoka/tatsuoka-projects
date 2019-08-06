@@ -210,13 +210,15 @@ func insertIntoDB(codes []ZipCode) bool {
 			}
 		}
 	}
-	return true
 
 	//Commit changes
 	_, err = db.Exec("COMMIT;")
 	if err != nil {
 		log.Fatal(err)
+		return false
 	}
+	
+	return true
 
 }
 

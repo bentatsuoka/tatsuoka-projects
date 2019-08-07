@@ -12,6 +12,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"strings"
 	_ "github.com/lib/pq"
 )
 
@@ -136,20 +137,20 @@ func insertIntoDB(codes []ZipCode) bool {
 	//insert data into new columns in zip_codes
 	var values []string
 	for i := 2; i < len(codes); i++ {
-		zip_code := codes[i].zip
-		//total_pop := codes[i].totals.totalPop
-		only_english_total := codes[i].totals.onlyEnglish.total
-		only_english_percent := codes[i].totals.onlyEnglish.percent
-		non_english_total := codes[i].totals.otherThanEnglish.pop.total
-		non_english_percent := codes[i].totals.otherThanEnglish.pop.percent
-		spanish_total := codes[i].totals.otherThanEnglish.spanish.total
-		spanish_percent := codes[i].totals.otherThanEnglish.spanish.percent
-		other_indoeuro_total := codes[i].totals.otherThanEnglish.otherIndoEuropean.total
-		other_indoeuro_percent := codes[i].totals.otherThanEnglish.otherIndoEuropean.percent
-		asianPacific_total := codes[i].totals.otherThanEnglish.asianPacific.total
-		asianPacific_percent := codes[i].totals.otherThanEnglish.asianPacific.percent
-		other_lang_total := codes[i].totals.otherThanEnglish.other.total
-		other_lang_percent := codes[i].totals.otherThanEnglish.other.percent
+		zip_code := checkField(codes[i].zip)
+		//total_pop := checkField(codes[i].totals.totalPop)
+		only_english_total := checkField(codes[i].totals.onlyEnglish.total)
+		only_english_percent := checkField(codes[i].totals.onlyEnglish.percent)
+		non_english_total := checkField(codes[i].totals.otherThanEnglish.pop.total)
+		non_english_percent := checkField(codes[i].totals.otherThanEnglish.pop.percent)
+		spanish_total := checkField(codes[i].totals.otherThanEnglish.spanish.total)
+		spanish_percent := checkField(codes[i].totals.otherThanEnglish.spanish.percent)
+		other_indoeuro_total := checkField(codes[i].totals.otherThanEnglish.otherIndoEuropean.total)
+		other_indoeuro_percent := checkField(codes[i].totals.otherThanEnglish.otherIndoEuropean.percent)
+		asianPacific_total := checkField(codes[i].totals.otherThanEnglish.asianPacific.total)
+		asianPacific_percent := checkField(codes[i].totals.otherThanEnglish.asianPacific.percent)
+		other_lang_total := checkField(codes[i].totals.otherThanEnglish.other.total)
+		other_lang_percent := checkField(codes[i].totals.otherThanEnglish.other.percent)
 
 		element := `(` + zip_code + `, ` + only_english_total + `, ` + only_english_percent + `, ` +
 			non_english_total + `, ` + non_english_percent + `, ` + spanish_total + `, ` + spanish_percent + `, ` +
@@ -221,6 +222,13 @@ func insertIntoDB(codes []ZipCode) bool {
 	
 	return true
 
+}
+
+func checkField(data string) string {
+	if data == "" {
+		return "NULL"
+	}
+	return string
 }
 
 func printCode(obj ZipCode) {

@@ -12,7 +12,6 @@ import (
 	"io"
 	"log"
 	"os"
-	"strings"
 	_ "github.com/lib/pq"
 )
 
@@ -228,7 +227,7 @@ func checkField(data string) string {
 	if data == "" {
 		return "NULL"
 	}
-	return string
+	return data
 }
 
 func printCode(obj ZipCode) {

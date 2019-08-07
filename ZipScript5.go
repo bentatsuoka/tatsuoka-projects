@@ -350,7 +350,7 @@ func main() {
 	//This create table command should be good
 
 	query, err := db.Prepare(`CREATE TABLE ZIP_CODES (` +
-		`ZIPCODE varchar, ` +
+		`ZIPCODE varchar PRIMARY KEY, ` +
 		`TOTAL_POP varchar, ` +
 		`MEDIAN_AGE varchar, ` +
 		`MALE varchar, ` +

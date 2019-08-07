@@ -12,6 +12,7 @@ import (
 	"io"
 	"log"
 	"os"
+	_ "github.com/lib/pq"
 )
 
 type DataPair struct {

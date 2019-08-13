@@ -55,7 +55,7 @@ func main() {
 func readCensus() *map[string][]string {
 
 	//open DB
-	pg_string := "postgres://postgres:DiipLplHoK7teB9o@35.185.109.176/postgres"
+	pg_string := "insert db string"
 	db, err := sql.Open("postgres", pg_string)
 	if err != nil {
 		log.Fatal(err)

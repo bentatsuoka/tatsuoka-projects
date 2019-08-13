@@ -101,7 +101,7 @@ func assignData(line []string, obj ZipCode) *ZipCode {
 func insertIntoDB(codes []ZipCode) bool {
 
 	//open
-	pg_string := "postgres://postgres:DiipLplHoK7teB9o@35.185.109.176/postgres"
+	pg_string := "insert db string"
 	db, err := sql.Open("postgres", pg_string)
 	if err != nil {
 		fmt.Println(err.Error())

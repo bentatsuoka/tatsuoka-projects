@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Sorting_hw2 {
+public class SortingAlgorithms {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		sc.useDelimiter("\n");
